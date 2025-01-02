@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "universal-karaoke-scraper"
+dynamic = ["version"]
+description = "little python module for finding codes for songs across different karaoke systems"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "medouses", email = "grassochayse@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = ["musicbrainzngs"]
+
+[project.urls]
+Documentation = "https://github.com/medouses/universal-karaoke-scraper#readme"
+Issues = "https://github.com/medouses/universal-karaoke-scraper/issues"
+Source = "https://github.com/medouses/universal-karaoke-scraper"
+
+[tool.hatch.version]
+path = "src/universal_karaoke_scraper/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/universal_karaoke_scraper tests}"
+
+[tool.coverage.run]
+source_pkgs = ["universal_karaoke_scraper", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/universal_karaoke_scraper/__about__.py",
+]
+
+[tool.coverage.paths]
+universal_karaoke_scraper = ["src/universal_karaoke_scraper", "*/universal-karaoke-scraper/src/universal_karaoke_scraper"]
+tests = ["tests", "*/universal-karaoke-scraper/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
