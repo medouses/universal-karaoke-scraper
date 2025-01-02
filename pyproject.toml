@@ -25,7 +25,6 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = ["musicbrainzngs"]
-
 [project.urls]
 Documentation = "https://github.com/medouses/universal-karaoke-scraper#readme"
 Issues = "https://github.com/medouses/universal-karaoke-scraper/issues"
